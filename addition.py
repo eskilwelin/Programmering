@@ -1,8 +1,18 @@
 """"
+
 import math is cheat
 
+DONE:
+- Konvertera till funktioner
+
+
+TODO: 
+- Fixa nästlade if satser med if not https://lawyerdev.medium.com/i-never-write-nested-ifs-e4e91a5440ee
+- Fixa user input 
+- Lägg till fler opperander / funktionalitet
+- Snygga till all text / output 
+
 """
-tal_validering = ["*", "/", "+", "-", "1", "2", "3", "4", "5", "6", "7", "8", "9", "0"]
 
 def add(n):
     result = 0
