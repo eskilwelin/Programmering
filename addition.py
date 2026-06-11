@@ -70,5 +70,6 @@ while True:
     again = str.lower(input("Vill du köra programmet en gång till? Ja / Nej "))
    
     if again != "ja" and again != "j":
-        exit()
+        print("Tack och hej!")
+        break
 
