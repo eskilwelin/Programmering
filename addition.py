@@ -37,11 +37,14 @@ def tal():
     inputs = []
     while True:
         inp = input("Skriv siffror, skicka en tom rad efter sista siffran: ")
-        
         if inp == "":
-            break
+            if len(inputs) < 2:
+                print("Skriv minst 2 siffror!")
+                continue
+            else:
+                break
         inputs.append(int(inp))
-
+    
     return inputs
 
 
