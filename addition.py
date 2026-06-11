@@ -1,24 +1,47 @@
-"""
-Två input tal
-val = Input addition eller subtraktion
+""""
+import math is cheat
 
 """
 
-def addition(i, j):
-    return i + j
+def addition(n):
+    result = 0
+    for number in n:
+        result += number
+    return result
 
-def subtraktion(i, j):
-    return i - j
+def subtraktion(n):
+    result = n[0]
+    n.pop()
+    for number in n:
+        result -= number
+    return result
 
-def multiplikation(i, j):
-    return i * j
+def multiplikation(n):
+    result = n[0]
+    n.pop()
+    for number in n:
+        result *= number
+    return result
 
-def division(i, j):
-    if j == 0:
+def division(n):
+    if n[1:-1] == 0:
         return "ERROR! Dividera inte med noll!"
-    else:
-        return i / j
+    result = n[0]
+    n.pop()
+    for number in n:
+        result /= number
+    return result
 
+
+def tal():
+    inputs = []
+    while True:
+        inp = input("Skriv ett antal siffror, skicka en tom rad efter sista siffran: ")
+        if inp == "":
+            break
+        inputs.append(int(inp))
+
+    return inputs
 
 
 while True:
@@ -29,20 +52,22 @@ while True:
         print("Felaktigt val, välj addition, gånger, division eller subtraktion")
         continue
 
-    tal1 = int(input("Välj tal ett: "))
-    tal2 = int(input("Välj tal två: "))
 
-        
     if val == "addition" or val == "+":
-        print(f"Resultatet blir: {addition(tal1, tal2)}")
+        result = addition(tal())
+        print(f"Resultatet blir: {result}")
     elif val == "subtraktion" or val == "-":
-        print(f"Resultatet blir: {subtraktion(tal1, tal2)}")
+        result = subtraktion(tal())
+        print(f"Resultatet blir: {result}")
     elif val == "gånger" or val == "*":
-        print(f"Resultatet blir: {multiplikation(tal1, tal2)}")
+        result = multiplikation(tal())
+        print(f"Resultatet blir: {result}")
     else:
-        print(f"Resultatet blir: {division(tal1, tal2)}")
+        result = division(tal())
+        print(f"Resultatet blir: {result}")
 
     again = str.lower(input("Vill du testa ett till tal? Ja / Nej "))
    
     if again != "ja" and again != "j":
         exit()
+
