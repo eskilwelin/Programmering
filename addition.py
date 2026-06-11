@@ -37,12 +37,15 @@ def user_tal():
     inputs = []
     while True:
         inp = input("Skriv siffror, skicka en tom rad efter sista siffran: ")
-        if inp == "":
-            if len(inputs) < 2:
-                print("Skriv minst 2 siffror!")
-                continue
-            else:
-                break
+        if inp.isnumeric() != True:
+            if inp == "":
+                if len(inputs) < 2:
+                    print("Skriv minst 2 siffror!")
+                    continue
+                else:
+                    break
+            print("Bara siffror tack!!!")
+            continue
         inputs.append(int(inp))
     
     return inputs
@@ -50,10 +53,10 @@ def user_tal():
 
 while True:
 
-    operator = str.lower(input("Välj 'addition', 'subtraktion', 'gånger' eller 'division': "))
+    operator = str.lower(input("Välj en operator + - / * : "))
 
     if operator not in ["addition", "+", "subtraktion", "-", "gånger", "*", "division", "/"]:
-        print("Felaktigt val, välj addition, gånger, division eller subtraktion")
+        print("Felaktigt val, välj + - / *")
         continue
 
 
