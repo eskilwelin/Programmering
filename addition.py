@@ -11,23 +11,23 @@ def addition(n):
 
 def subtraktion(n):
     result = n[0]
-    n.pop()
+    n.pop(0)
     for number in n:
         result -= number
     return result
 
 def multiplikation(n):
     result = n[0]
-    n.pop()
+    n.pop(0)
     for number in n:
         result *= number
     return result
 
 def division(n):
-    if n[1:-1] == 0:
-        return "ERROR! Dividera inte med noll!"
     result = n[0]
-    n.pop()
+    n.pop(0)
+    if 0 in n:
+        return "ERROR! Dividera inte med noll!"
     for number in n:
         result /= number
     return result
@@ -36,7 +36,8 @@ def division(n):
 def tal():
     inputs = []
     while True:
-        inp = input("Skriv ett antal siffror, skicka en tom rad efter sista siffran: ")
+        inp = input("Skriv siffror, skicka en tom rad efter sista siffran: ")
+        
         if inp == "":
             break
         inputs.append(int(inp))
@@ -66,7 +67,7 @@ while True:
         result = division(tal())
         print(f"Resultatet blir: {result}")
 
-    again = str.lower(input("Vill du testa ett till tal? Ja / Nej "))
+    again = str.lower(input("Vill du köra programmet en gång till? Ja / Nej "))
    
     if again != "ja" and again != "j":
         exit()
