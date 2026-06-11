@@ -3,27 +3,27 @@ import math is cheat
 
 """
 
-def addition(n):
+def add(n):
     result = 0
     for number in n:
         result += number
     return result
 
-def subtraktion(n):
+def sub(n):
     result = n[0]
     n.pop(0)
     for number in n:
         result -= number
     return result
 
-def multiplikation(n):
+def mult(n):
     result = n[0]
     n.pop(0)
     for number in n:
         result *= number
     return result
 
-def division(n):
+def div(n):
     result = n[0]
     n.pop(0)
     if 0 in n:
@@ -33,7 +33,7 @@ def division(n):
     return result
 
 
-def tal():
+def user_tal():
     inputs = []
     while True:
         inp = input("Skriv siffror, skicka en tom rad efter sista siffran: ")
@@ -50,24 +50,24 @@ def tal():
 
 while True:
 
-    val = str.lower(input("Välj 'addition', 'subtraktion', 'gånger' eller 'division': "))
+    operator = str.lower(input("Välj 'addition', 'subtraktion', 'gånger' eller 'division': "))
 
-    if val not in ["addition", "+", "subtraktion", "-", "gånger", "*", "division", "/"]:
+    if operator not in ["addition", "+", "subtraktion", "-", "gånger", "*", "division", "/"]:
         print("Felaktigt val, välj addition, gånger, division eller subtraktion")
         continue
 
 
-    if val == "addition" or val == "+":
-        result = addition(tal())
+    if operator == "addition" or operator == "+":
+        result = add(user_tal())
         print(f"Resultatet blir: {result}")
-    elif val == "subtraktion" or val == "-":
-        result = subtraktion(tal())
+    elif operator == "subtraktion" or operator == "-":
+        result = sub(user_tal())
         print(f"Resultatet blir: {result}")
-    elif val == "gånger" or val == "*":
-        result = multiplikation(tal())
+    elif operator == "gånger" or operator == "*":
+        result = mult(user_tal())
         print(f"Resultatet blir: {result}")
     else:
-        result = division(tal())
+        result = div(user_tal())
         print(f"Resultatet blir: {result}")
 
     again = str.lower(input("Vill du köra programmet en gång till? Ja / Nej "))
