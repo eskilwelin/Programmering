@@ -6,10 +6,10 @@ DONE:
 - Konvertera till funktioner
 - User input blockerar negativa tal
 - Konvertera output till switch / case
+- Fixa user input validering för "-", för tillfället tillåts "-hej" osv.
 
 TODO: 
 - Fixa nästlade if satser med if not https://lawyerdev.medium.com/i-never-write-nested-ifs-e4e91a5440ee
-- Fixa user input validering för "-", för tillfället tillåts "-hej" osv.
 - Lägg till fler opperander / funktionalitet
 - Snygga till all text / output 
 - Alla funktioner för uträkningar är återanvänd kod, konvertera det till en funktion eller ett objekt 
@@ -52,16 +52,18 @@ def user_num():
     print("Ange en siffra åt gången, skicka en tom rad efter sista siffran.")
     while True:
         user_input = input("> ")
-        if not user_input.isnumeric() and user_input.find("-") == -1:
-            if user_input == "":
-                if len(num_list) < 2:
-                    print("Ange minst 2 siffror!")
-                    continue
-                else:
-                    break
-            print("Ange enbart siffror.")
+        if user_input == "":
+            if len(num_list) < 2:
+                print("Ange minst 2 siffror!")
+                continue
+            else:
+                break
+        try:
+            input_int = int(user_input)
+        except ValueError:
+            print("Bara siffror tack!")
             continue
-        num_list.append(int(user_input))
+        num_list.append(input_int)
     
     return num_list
 
