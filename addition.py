@@ -7,6 +7,7 @@ DONE:
 - User input blockerar negativa tal
 - Konvertera output till switch / case
 - Fixa user input validering för "-", för tillfället tillåts "-hej" osv.
+- La till en funktion för att lista hela uträkningen i output
 
 TODO: 
 - Fixa nästlade if satser med if not https://lawyerdev.medium.com/i-never-write-nested-ifs-e4e91a5440ee
@@ -52,11 +53,12 @@ def user_num():
     print("Ange en siffra åt gången, skicka en tom rad efter sista siffran.")
     while True:
         user_input = input("> ")
-        if user_input == "" and len(num_list) < 2:
-            print("Ange minst 2 siffror!")
-            continue
         if user_input == "":
-            break
+            if len(num_list) < 2:
+                print("Ange minst 2 siffror!")
+                continue
+            else:
+                break
         try:
             converted_input = int(user_input)
         except ValueError:
@@ -66,30 +68,39 @@ def user_num():
     
     return num_list
 
+def calculation(num_list, operator):
+    output = ""
+    for num in num_list[:-1]:
+        output += str(num) + " " + operator + " "
+    output += str(num_list[-1])
+    return output
 
 while True:
 
-    operator = str.lower(input("Välj en operator + - / * : "))
+    print("Välj en operator + - / * : ")
+    operator = input("> ")
 
     if operator not in ["+", "-", "*", "/"]:
         print("Felaktigt val, välj + - / * ")
         continue
     
+    users_numbers = user_num()
+
+    calc_output = calculation(users_numbers, operator)
+
     match operator:
         case "+":
-            result = add(user_num())
+            result = add(users_numbers)
         case "-":
-            result = sub(user_num())
-            
+            result = sub(users_numbers)
         case "*":
-            result = mult(user_num())
-            
+            result = mult(users_numbers)
         case _:
-            result = div(user_num())
+            result = div(users_numbers)
             if result == "ERROR! Ingen division med 0!":
                 print(result)
 
-    print(f"Resultatet blir: {result}")
+    print(f"{calc_output} = {result}")
 
     run_again = str.lower(input('Om du vill köra programmet igen säg "Ja": '))
    
