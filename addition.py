@@ -52,18 +52,17 @@ def user_num():
     print("Ange en siffra åt gången, skicka en tom rad efter sista siffran.")
     while True:
         user_input = input("> ")
+        if user_input == "" and len(num_list) < 2:
+            print("Ange minst 2 siffror!")
+            continue
         if user_input == "":
-            if len(num_list) < 2:
-                print("Ange minst 2 siffror!")
-                continue
-            else:
-                break
+            break
         try:
-            input_int = int(user_input)
+            converted_input = int(user_input)
         except ValueError:
             print("Bara siffror tack!")
             continue
-        num_list.append(input_int)
+        num_list.append(converted_input)
     
     return num_list
 
@@ -79,19 +78,18 @@ while True:
     match operator:
         case "+":
             result = add(user_num())
-            print(f"Resultatet blir: {result}")
         case "-":
             result = sub(user_num())
-            print(f"Resultatet blir: {result}")
+            
         case "*":
             result = mult(user_num())
-            print(f"Resultatet blir: {result}")
+            
         case _:
             result = div(user_num())
             if result == "ERROR! Ingen division med 0!":
                 print(result)
-            else:
-                print(f"Resultatet blir: {result}")
+
+    print(f"Resultatet blir: {result}")
 
     run_again = str.lower(input('Om du vill köra programmet igen säg "Ja": '))
    
