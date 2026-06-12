@@ -7,7 +7,7 @@ TODO:
 - Alla funktioner för uträkningar är återanvänd kod, konvertera det till en funktion eller ett objekt 
 
 """
-from calculator import calc
+from math_at_home import op
 
 while True:
 
@@ -18,19 +18,19 @@ while True:
         print("Felaktigt val, välj + - / * ")
         continue
     
-    users_numbers = calc.user_num()
+    users_numbers = op.user_num()
 
-    calc_output = calc.calculation(users_numbers, operator)
+    calc_output = op.calculation(users_numbers, operator)
 
     match operator:
         case "+":
-            result = calc.add(users_numbers)
+            result = op.add(users_numbers)
         case "-":
-            result = calc.sub(users_numbers)
+            result = op.sub(users_numbers)
         case "*":
-            result = calc.mult(users_numbers)
+            result = op.mult(users_numbers)
         case _:
-            result = calc.div(users_numbers)
+            result = op.div(users_numbers)
 
     if result == "ERROR! Ingen division med 0!":
         print(result)
