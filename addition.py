@@ -8,11 +8,11 @@ DONE:
 - Konvertera output till switch / case
 - Fixa user input validering för "-", för tillfället tillåts "-hej" osv.
 - La till en funktion för att lista hela uträkningen i output
+- Fixa nästlade if satser med if not https://lawyerdev.medium.com/i-never-write-nested-ifs-e4e91a5440ee, hittade annan lösning med try except
+- Snygga till all text / output 
 
 TODO: 
-- Fixa nästlade if satser med if not https://lawyerdev.medium.com/i-never-write-nested-ifs-e4e91a5440ee
 - Lägg till fler opperander / funktionalitet
-- Snygga till all text / output 
 - Alla funktioner för uträkningar är återanvänd kod, konvertera det till en funktion eller ett objekt 
 
 """
@@ -97,10 +97,11 @@ while True:
             result = mult(users_numbers)
         case _:
             result = div(users_numbers)
-            if result == "ERROR! Ingen division med 0!":
-                print(result)
 
-    print(f"{calc_output} = {result}")
+    if result == "ERROR! Ingen division med 0!":
+        print(result)
+    else:
+        print(f"{calc_output} = {result}")
 
     run_again = str.lower(input('Om du vill köra programmet igen säg "Ja": '))
    
