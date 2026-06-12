@@ -1,15 +1,6 @@
 """"
 
-import math is cheat
-
-DONE:
-- Konvertera till funktioner
-- User input blockerar negativa tal
-- Konvertera output till switch / case
-- Fixa user input validering för "-", för tillfället tillåts "-hej" osv.
-- La till en funktion för att lista hela uträkningen i output
-- Fixa nästlade if satser med if not https://lawyerdev.medium.com/i-never-write-nested-ifs-e4e91a5440ee, hittade annan lösning med try except
-- Snygga till all text / output 
+import math IS CHEAT
 
 TODO: 
 - Lägg till fler opperander / funktionalitet
@@ -50,7 +41,7 @@ def div(n):
 
 def user_num():
     num_list = []
-    print("Ange en siffra åt gången, skicka en tom rad efter sista siffran.")
+    print("Ange ett tal åt gången, skicka en tom rad efter sista talet.")
     while True:
         user_input = input("> ")
         if user_input == "":
