@@ -3,7 +3,7 @@
 import math IS CHEAT
 
 TODO: 
-- Lägg till fler opperander / funktionalitet
+- Lägg till fler operatorer / funktionalitet
 - Alla funktioner för uträkningar är återanvänd kod, konvertera det till en funktion eller ett objekt 
 
 """
