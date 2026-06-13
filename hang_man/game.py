@@ -27,7 +27,7 @@ def main():
     user_word = ["_"] * len(word_to_guess)
 
 
-    user_lives = 8
+    user_lives = 6
     already_guessed_letters = []
 
 
@@ -36,15 +36,16 @@ def main():
     run_game = True
     while run_game: 
 
-        print("Type a single letter!\n")
-        print(" ".join(user_word))
-        user_input_letter = (input("> ")).lower()
+        print(" ".join(user_word) + "\n")
+        user_input_letter = (input("Type a single letter: ")).lower()
 
         # Validate user input as a single letter
         if not user_input_letter.isalpha() or not len(user_input_letter) == 1:
             print("I said a single letter!")
+
         elif user_input_letter in already_guessed_letters:
             print(f"You already tried {user_input_letter}\n")
+
         elif not user_input_letter in word_to_guess_letters:
             already_guessed_letters.append(user_input_letter)
             user_lives -= 1
@@ -55,9 +56,9 @@ def main():
                 print(f"Guess again! You have {user_lives} try left!\n")
                 continue            
             else:
-                print(f"You got hung! The word was {word_to_guess}!\n")
-                run_game = False
+                print(f"You're dead. The word was {word_to_guess}!\n")
                 break   
+            
         else:
             already_guessed_letters.append(user_input_letter)
             for counter, i in enumerate(word_to_guess_letters):
