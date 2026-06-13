@@ -1,4 +1,5 @@
 """
+NOTE: game.py must be launched in the same directory as the wordlists.txt files in order for word_list.py to work.  
 
 TODO:
 - Grafik
@@ -9,15 +10,15 @@ import word_list
 
 def main():
     
-    print("Are you ready for some kinky shit? \n Type: 1 for BDSM \n Type: 2 for vanilla stuff \n")
+    print("Pick you difficulty: \n Type: 1 for a hard word \n Type: 2 for an easy word \n")
     while True:
         try:
             difficulty = int(input("> "))
         except ValueError:
-            print("1 or 2 bozo!")
+            print("Chose between 1 or 2.")
             continue
         if difficulty > 2:
-            print("1 or 2 bozo!")
+            print("Chose between 1 or 2.")
             continue
         else:
             break
@@ -50,13 +51,13 @@ def main():
             already_guessed_letters.append(user_input_letter)
             user_lives -= 1
             if user_lives > 1:
-                print(f"Guess again! Smack! You have now only {user_lives} tries left!\n")
+                print(f"Guess again! You have {user_lives} tries left!\n")
                 continue
             elif user_lives == 1:
                 print(f"Guess again! You have {user_lives} try left!\n")
                 continue            
             else:
-                print(f"You're liked it, didn't you? The word was {word_to_guess}!\n")
+                print(f"You died! The word was {word_to_guess}!\n")
                 break   
         else:
             already_guessed_letters.append(user_input_letter)
