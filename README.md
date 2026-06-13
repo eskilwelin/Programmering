@@ -10,9 +10,9 @@ Detta repo innehåller skolprojekt från kursen **Programmering 1**.
 
 
 
-- `math_at_home` – kalkylatorprogram
+- `math_at_home` - Funktioner till `calculator.py`
 
-- `hang_man` – hangman-spel
+- `hang_man` – Hänga gubben
 
 
 
