@@ -6,6 +6,7 @@ def random_word(difficulty):
             f = open("hangmanwords.txt")
         case _:
             f = open("easywords.txt") 
+            
     word_list = []
     for word in f.readlines():
         word_list.append(word.strip())
