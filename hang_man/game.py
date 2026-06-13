@@ -22,7 +22,7 @@ def main():
     
     # generate a word from word_list.py
     word_to_guess = word_list.random_word(difficulty)
-
+   
     # make the brackets to display the length of the word and any found letters
     user_word = ["_"] * len(word_to_guess)
 
@@ -38,7 +38,7 @@ def main():
 
         print("Type a single letter!\n")
         print(" ".join(user_word))
-        user_input_letter = input("> ")
+        user_input_letter = (input("> ")).lower()
 
         # Validate user input as a single letter
         if not user_input_letter.isalpha() or not len(user_input_letter) == 1:
@@ -67,9 +67,6 @@ def main():
         if not "_" in user_word:
             print(f'You successfully guessed the word: "{word_to_guess}". You WIN!')
             break
-
-        
-
 
 if __name__ == "__main__":
     main()
