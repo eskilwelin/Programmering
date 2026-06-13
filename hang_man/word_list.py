@@ -1,8 +1,11 @@
 import random
 
-def random_word():
-
-    f = open("hangmanwords.txt") 
+def random_word(difficulty):
+    match difficulty:
+        case 1:
+            f = open("hangmanwords.txt")
+        case _:
+            f = open("easywords.txt") 
     word_list = []
     for word in f.readlines():
         word_list.append(word.strip())

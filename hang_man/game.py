@@ -6,11 +6,24 @@ TODO:
 """
 import word_list
 
-word_to_guess = word_list.random_word()
+print("Want a hard word or an easy word? \n 1. Hard \n 2. Easy \n")
+while True:
+    try:
+        difficulty = int(input("> "))
+    except ValueError:
+        print("1 or 2 bozo!")
+        continue
+    if difficulty > 2:
+        print("1 or 2 bozo!")
+        continue
+    else:
+        break
+        
+word_to_guess = word_list.random_word(difficulty)
 
 user_word = ["_"] * len(word_to_guess)
 
-user_lives = 6
+user_lives = 8
 already_guessed_letters = []
 
 print(" ".join(user_word))
@@ -34,20 +47,21 @@ while run_game:
                 if user_lives > 1:
                     print(f"Guess again! You have {user_lives} tries left!")
                     break
-                if user_lives == 1:
+                elif user_lives == 1:
                     print(f"Guess again! You have {user_lives} try left!")
                     break            
-                if user_lives == 0:
-                    print("You got hung!")
-                    run_game = False    
-            if i == user_input_letter:
+                else:
+                    print(f"You got hung! The word was {word_to_guess}!")
+                    run_game = False
+                    break    
+            # detta kan förmodligen vara else (?)
+            if i == user_input_letter: 
                 user_word[counter] = user_input_letter
                 already_guessed_letters.append(user_input_letter)
 
 
     if not "_" in user_word:
-        solution = "".join(user_word)
-        print(f'You successfully guessed the word: "{solution}". You WIN!')
+        print(f'You successfully guessed the word: "{word_to_guess}". You WIN!')
         break
 
     print(" ".join(user_word))
