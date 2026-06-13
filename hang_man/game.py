@@ -1,4 +1,5 @@
 """
+
 TODO:
 - Grafik
 
@@ -7,6 +8,7 @@ TODO:
 import word_list
 
 def main():
+    
     print("Want a hard word or an easy word? \n Type: 1 for hard \n Type: 2 for easy \n")
     while True:
         try:
@@ -42,10 +44,8 @@ def main():
         # Validate user input as a single letter
         if not user_input_letter.isalpha() or not len(user_input_letter) == 1:
             print("I said a single letter!")
-
         elif user_input_letter in already_guessed_letters:
             print(f"You already tried {user_input_letter}\n")
-
         elif not user_input_letter in word_to_guess_letters:
             already_guessed_letters.append(user_input_letter)
             user_lives -= 1
@@ -58,7 +58,6 @@ def main():
             else:
                 print(f"You're dead. The word was {word_to_guess}!\n")
                 break   
-            
         else:
             already_guessed_letters.append(user_input_letter)
             for counter, i in enumerate(word_to_guess_letters):
