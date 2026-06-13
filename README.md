@@ -1,20 +1,20 @@
-\# Programmering
+# Programmering
 
 
 
-Detta repo innehåller skolprojekt från kursen \*\*Programmering 1\*\*.
+Detta repo innehåller skolprojekt från kursen **Programmering 1**.
 
 
 
-\## Struktur
+## Struktur
 
 
 
-\- `math\_at\_home/` – kalkylatorprogram
+- `math_at_home` – kalkylatorprogram
 
-\- `hang\_man/` – hangman-spel
+- `hang_man` – hangman-spel
 
 
 
-Notera: filerna för kalkylatorn ligger i repots rot av historiska skäl, medan nyare projekt (som hangman) ligger i egna undermappar. \*\*LESSON LEARNED\*\*
+Notera: filerna för kalkylatorn ligger i repots rot av historiska skäl, medan nyare projekt (som hangman) ligger i egna undermappar. **LESSON LEARNED**
 
